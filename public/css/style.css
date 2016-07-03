@@ -1,0 +1,37 @@
+
+#jstree{
+    width: 250px;
+  height:400px;
+    
+    overflow-y:auto;
+    overflow-x:auto;
+    float:left;
+}
+.yellow{
+    color: #ecb03d;
+}
+.white{
+    color: white;
+}
+.green{
+    color: cornflowerblue;
+}
+.context-menu-icon-fileadd:before {
+  content:"\e022";
+}
+#grid .ui-state-hover{
+  background: #beebff;
+  background: -webkit-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
+  background: linear-gradient(to bottom, #beebff 0%, #a8e4ff 100%);
+}
+
+#grid .ui-state-focus{
+   border : 1px solid blue;
+   background: green;
+}
+.ui-dialog {
+    z-index: 1000
+}
+.ui-button-text{
+    border: none;
+}

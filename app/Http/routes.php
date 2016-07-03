@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tree/data', 'NestedSetController@data');
+Route::post('/tree/structbyid', 'NestedSetController@structbyid');
+
+Route::post('/session/set', 'SessionController@set');
+Route::post('/session/get', 'SessionController@get');
+

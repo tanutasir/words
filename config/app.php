@@ -165,7 +165,10 @@ return [
          */
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         #llum_providers
-
+        
+        
+        #baum
+        'Baum\Providers\BaumServiceProvider',
     ],
 
     /*
