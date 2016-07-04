@@ -80,7 +80,7 @@ $(function() {
             if(data.node.type == "file"){
                 $.post( '//' + path + '/session/set', { key: 'structid', value: data.node.id },function(){
                     jQuery('#grid').trigger('reloadGrid');
-                        $.post('//' + path + '/tree/structbyid',{id:data.node.id},function(ret){
+                        $.post('//' + path + '/grid/structbyid',{id:data.node.id},function(ret){
                             $("#contentheader_title").text(JSON.parse(ret).text)
                         })
                     
@@ -96,10 +96,86 @@ $(function() {
         }
     }).on("contextmenu", ".jstree-anchor", function (e) {
         e.preventDefault();
-        $("#jstree").jstree(true).activate_node(this);
+        $("#tree").jstree(true).activate_node(this);
     });
     
-    
+    $.contextMenu({
+        selector: ".jstree-anchor",
+        autoHide: true,
+        zIndex: 1000,
+        items: {
+            createFile: {
+                name: "New File",
+                icon: "add",
+                visible: function(){
+                        var node = $("#tree").jstree(true).get_selected(true);
+                        return (node[0].type == "folder") ? true : false;
+                },
+                callback: function(key, opt){
+                    var node = $("#jstree").jstree(true).get_selected(true);
+                    $("#tree").jstree('create_node', node[0].id, { 'text' : 'New file', 'type': 'file'}, 'last');
+                }
+            },
+            createFolder: {
+                name: "New Folder",
+                icon: "add",
+                visible: function(){
+                        var node = $("#tree").jstree(true).get_selected(true);
+                        return (node[0].type == "folder") ? true : false;
+                },
+                callback: function(key, opt){
+                    var node = $("#tree").jstree(true).get_selected(true);
+                    $("#tree").jstree('create_node', node[0].id, { 'text' : 'New folder', 'type': 'folder'}, 'last');
+                    
+                }
+            },
+            "sep1": { 
+                "type": "cm_seperator",
+                visible: function(){
+                        var node = $("#tree").jstree(true).get_selected(true);
+                        return (node[0].type == "folder") ? true : false;
+                },            
+            },
+            rename: {
+                name: "Rename",
+                icon: "edit",
+                callback: function(key, opt){
+                    var node = $("#tree").jstree(true).get_selected(true);
+                    $("#tree").jstree(true).edit(node[0].id);
+                }
+            },
+            
+            delete: {
+                name: "Delete",
+                icon: "delete",
+                callback: function(key, opt){
+                    var node = $("#tree").jstree(true).get_selected(true);
+                    $("#tree").jstree(true).delete_node(node[0].id);
+                }
+            },
+            "sep2": { 
+                "type": "cm_seperator",
+             //   visible: function(){
+                      //  var node = $("#jstree").jstree(true).get_selected(true);
+                      //  return (node[0].type == "folder") ? true : false;
+              //  },            
+            },
+            options: {
+                name: "Properties",
+                icon: "edit",
+                visible: function(){
+                        var node = $("#tree").jstree(true).get_selected(true);
+                        return (node[0].type == "file") ? true : false;
+                },
+                callback: function(key, opt){
+                   opendialog(2);
+                   // var node = $("#jstree").jstree(true).get_selected(true);
+                   // $("#jstree").jstree(true).edit(node[0].id);
+                }
+            }
+            
+        }
+    });
     
 });
 

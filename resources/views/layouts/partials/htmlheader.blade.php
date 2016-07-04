@@ -17,9 +17,10 @@
     <link href="{{ asset('/css/skins/skin-blue-light.css') }}" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.css">
     <link href="{{ asset('/jstree/dist/themes/default/style.min.css') }}" rel="stylesheet" type="text/css" />
-    
+    <link href="{{ asset('/jqgrid/css/ui.jqgrid.css') }}" rel="stylesheet" type="text/css" media="screen"  />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('jqcmenu/jquery.contextMenu.min.css') }}" />
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

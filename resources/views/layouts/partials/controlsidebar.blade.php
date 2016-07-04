@@ -9,6 +9,61 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
+            <div id="pagess-wrapper">
+                <h1>Config</h1>
+
+                <p id="msg"></p>
+
+                <input type="text" name="speech-msg" id="speech-msg" x-webkit-speech>
+
+                <div class="option">
+                        <label for="voice">Voice</label>
+                        <select name="voice" id="voice" class="form-control input-sm"></select>
+                </div>
+                <div class="option">
+                        <label for="volume">Volume</label>
+                        <input type="range" min="0" max="1" step="0.1" name="volume" class="form-control" id="volume" value="1">
+                </div>
+                <div class="option">
+                        <label for="rate">Rate</label>
+                        <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+                </div>
+                <div class="option">
+                        <label for="pitch">Pitch</label>
+                        <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+                </div>
+
+                <button id="speak">Speak</button>
+
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+<!--        
             <h3 class="control-sidebar-heading">{{ trans('adminlte_lang::message.recentactivity') }}</h3>
             <ul class='control-sidebar-menu'>
                 <li>
@@ -20,7 +75,7 @@
                         </div>
                     </a>
                 </li>
-            </ul><!-- /.control-sidebar-menu -->
+            </ul> /.control-sidebar-menu 
 
             <h3 class="control-sidebar-heading">{{ trans('adminlte_lang::message.progress') }}</h3>
             <ul class='control-sidebar-menu'>
@@ -35,9 +90,9 @@
                         </div>
                     </a>
                 </li>
-            </ul><!-- /.control-sidebar-menu -->
+            </ul> /.control-sidebar-menu -->
 
-        </div><!-- /.tab-pane -->
+        <!--</div> /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->
         <!-- Settings tab content -->

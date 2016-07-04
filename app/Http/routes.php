@@ -10,14 +10,25 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::group(array('before' => 'auth'), function(){
+    
+    Route::get('/', 'HomeController@index');
+    
+    Route::get('/welcome', function () {
+        return view('welcome');
+    });
+    
+    Route::get('/tree/data', 'NestedSetController@data');
 
-Route::get('/tree/data', 'NestedSetController@data');
-Route::post('/tree/structbyid', 'NestedSetController@structbyid');
 
-Route::post('/session/set', 'SessionController@set');
-Route::post('/session/get', 'SessionController@get');
+    Route::post('/session/set', 'SessionController@set');
+    Route::post('/session/get', 'SessionController@get');
 
+    Route::post('/grid/structbyid', 'GridController@structbyid');
+    Route::get('/grid/data', 'GridController@data');
+
+    Route::get('/signout', 'ExtController@getLogout');
+    
+//});
