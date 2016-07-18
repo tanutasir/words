@@ -28,7 +28,10 @@ use Auth;
 
     Route::post('/grid/structbyid', 'GridController@structbyid');
     Route::get('/grid/data', 'GridController@data');
-
+    Route::post('/grid/gridsave', 'GridController@gridsave'); 
+    Route::post('/grid/gridnew', 'GridController@gridnew');
+    Route::post('/grid/griddel', 'GridController@griddel');
+    
     Route::get('/signout', 'ExtController@getLogout');
     
 //});

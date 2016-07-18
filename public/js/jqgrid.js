@@ -45,7 +45,7 @@ $(function() {
             if(id && id!==lastsel){
                 jQuery('#grid').jqGrid('saveRow',lastsel);
                 jQuery('#grid').jqGrid('editRow',id,true);
-                lastsel=id;
+                lastsel = id;
             }
         },
 //        afterEditCell: function() {
@@ -58,7 +58,7 @@ $(function() {
         rownumbers: true,
         cellEdit : true,
         cellsubmit:'remote',
-        cellurl: '//' + path + '/grid/save',
+        cellurl: '//' + path + '/grid/gridsave',
         hoverrows : true
        // editurl: "//words/nested/gridsave",
 
@@ -75,5 +75,42 @@ $(function() {
 //    });
 
     jQuery("#grid").jqGrid('navGrid','#nav',{edit:false,add:false,del:false});
+    
+    $('#newrow').click(function(){
+        
+        $.post('//' + path + '/grid/gridnew', function(id){
+            jQuery('#grid').jqGrid('saveRow',lastsel);
+            $("#grid").jqGrid('addRowData',id,{id:id},'last');
+            jQuery('#grid').jqGrid('saveRow',id);
+            jQuery('#grid').jqGrid('setSelection',id);
+            jQuery('#grid').jqGrid('editRow',id);
+        })
 
+    })
+    
+    $('#delrow').click(function(){
+        var id = jQuery('#grid').jqGrid('getGridParam','selrow'); 
+        if(id){ 
+            $.post('//' + path + '/grid/griddel',{id:id}, function(){ 
+                jQuery('#grid').jqGrid('saveRow',id);
+                $("#grid").jqGrid('delRowData',id);
+                jQuery('#grid').trigger('reloadGrid');
+            })
+        }
+    })
+    
+    $('#saverow').click(function(){
+        var id = jQuery('#grid').jqGrid('getGridParam','selrow');
+//        jQuery('#grid').jqGrid('saveRow',id);
+        jQuery('#grid').jqGrid('resetSelection');
+
+        var saveurl = '//' + path + '/grid/gridsave';
+        jQuery('#grid').jqGrid('saveRow',id, checkedit, saveurl);
+
+    })
+    
+    function checkedit(result){
+        return false;
+    }
 });
+

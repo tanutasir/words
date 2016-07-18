@@ -31,9 +31,9 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="treeview"><div id="tree" style=""></div></li>
-<!--            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
-             Optionally, you can add icons to the links 
+            <li class="header"><i class='fa fa-link'></i><div id="tree" style=""></div></li>
+            <!--<li class="header">{{ trans('adminlte_lang::message.header') }}</li>-->
+<!--             Optionally, you can add icons to the links 
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>-->
 <!--            <li class="treeview">

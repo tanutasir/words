@@ -78,6 +78,7 @@ $(function() {
     }).on('changed.jstree', function (e, data) {
         if(typeof data.node != "undefined"){
             if(data.node.type == "file"){
+                $("#gridpanel").show();
                 $.post( '//' + path + '/session/set', { key: 'structid', value: data.node.id },function(){
                     jQuery('#grid').trigger('reloadGrid');
                         $.post('//' + path + '/grid/structbyid',{id:data.node.id},function(ret){
@@ -87,6 +88,7 @@ $(function() {
                 });
                 
             }else{
+                $("#gridpanel").hide();
                 $.post( '//' + path + '/session/set', { key: 'structid', value: 0 },function(){
                     jQuery('#grid').trigger('reloadGrid');
                     $("#contentheader_title").text('')
@@ -112,7 +114,7 @@ $(function() {
                         return (node[0].type == "folder") ? true : false;
                 },
                 callback: function(key, opt){
-                    var node = $("#jstree").jstree(true).get_selected(true);
+                    var node = $("#tree").jstree(true).get_selected(true);
                     $("#tree").jstree('create_node', node[0].id, { 'text' : 'New file', 'type': 'file'}, 'last');
                 }
             },
