@@ -34,6 +34,7 @@ $(function() {
                 {name:'known', width:200, editable:true,edittype:"textarea"},
                 {name:'accent', width:200, editable:true,edittype:"textarea"}		
         ],
+        editurl: '//' + path + '/grid/gridsave',
         rowNum:10,
         rowList:[10,20,30],
         pager: '#nav',
@@ -43,7 +44,8 @@ $(function() {
         height: "250",
         onSelectRow: function(id){
             if(id && id!==lastsel){
-                jQuery('#grid').jqGrid('saveRow',lastsel);
+                var saveurl = '//' + path + '/grid/gridsave';
+                jQuery('#grid').jqGrid('saveRow', lastsel, saveurl);
                 jQuery('#grid').jqGrid('editRow',id,true);
                 lastsel = id;
             }
@@ -54,11 +56,11 @@ $(function() {
 //           //jQuery('#grid').jqGrid('saveRow',iRow);
 //        },
         restoreAfterSelect: false,
-        saveAfterSelect: true,
+//        saveAfterSelect: true,
         rownumbers: true,
-        cellEdit : true,
-        cellsubmit:'remote',
-        cellurl: '//' + path + '/grid/gridsave',
+        cellEdit : false,
+//        cellsubmit:'remote',
+//        cellurl: '//' + path + '/grid/gridsave',
         hoverrows : true
        // editurl: "//words/nested/gridsave",
 
@@ -92,7 +94,7 @@ $(function() {
         var id = jQuery('#grid').jqGrid('getGridParam','selrow'); 
         if(id){ 
             $.post('//' + path + '/grid/griddel',{id:id}, function(){ 
-                jQuery('#grid').jqGrid('saveRow',id);
+//                jQuery('#grid').jqGrid('saveRow',id);
                 $("#grid").jqGrid('delRowData',id);
                 jQuery('#grid').trigger('reloadGrid');
             })

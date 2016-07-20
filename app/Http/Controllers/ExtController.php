@@ -16,10 +16,9 @@ class ExtController extends Controller
     }
     
     public function getLogout(){
-        
-        
         Auth::logout();
         Session::flush();
         return Redirect::to('/login');
     }
+
 }
