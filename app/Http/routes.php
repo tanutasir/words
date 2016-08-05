@@ -34,4 +34,6 @@ use Auth;
     
     Route::get('/signout', 'ExtController@getLogout');
     
+    Route::get('/getrandom', 'RandomController@getrandom');
+    
 //});

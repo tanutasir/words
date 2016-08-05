@@ -21,6 +21,7 @@
 
 <script src="{{ asset('/js/nested.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/jqgrid.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/random.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('/js/speak.js') }}" type="text/javascript"></script>
 

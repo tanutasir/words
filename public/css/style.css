@@ -35,3 +35,5 @@
 .ui-button-text{
     border: none;
 }
+tr.jqgrow td:nth-child(4) { padding: 0px 10px 0px !important; }
+tr.jqgrow td:nth-child(5) { padding: 0px 10px 0px !important; }

@@ -16,7 +16,8 @@ class RandomController extends Controller
     }
     
     public function getRandom(){
-
+        $structid = Session::get('structid');
+        return \App\Data::where('tree_struct_id', $structid)->inRandomOrder()->first();
     }
 
 }

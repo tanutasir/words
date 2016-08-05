@@ -79,10 +79,11 @@ $(function() {
         if(typeof data.node != "undefined"){
             if(data.node.type == "file"){
                 $("#gridpanel").show();
+                $("#startpanel").hide();
                 $.post( '//' + path + '/session/set', { key: 'structid', value: data.node.id },function(){
                     jQuery('#grid').trigger('reloadGrid');
                         $.post('//' + path + '/grid/structbyid',{id:data.node.id},function(ret){
-                            $("#contentheader_title").text(JSON.parse(ret).text)
+                            $(".contentheader_title").text(JSON.parse(ret).text)
                         })
                     
                 });
@@ -91,7 +92,7 @@ $(function() {
                 $("#gridpanel").hide();
                 $.post( '//' + path + '/session/set', { key: 'structid', value: 0 },function(){
                     jQuery('#grid').trigger('reloadGrid');
-                    $("#contentheader_title").text('')
+                    $(".contentheader_title").text('')
                 });
             }
             

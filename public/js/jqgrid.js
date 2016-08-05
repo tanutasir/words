@@ -26,13 +26,13 @@ $(function() {
         scroll: 1,
         url:'//' + path + '/grid/data',
         datatype: "json",
-        colNames:['id', '', 'Unknown', 'Known', 'Accent'],
+        colNames:['id', '', 'Unknown', 'Known'],//, 'Accent'
         colModel:[
                 {name:'id', width:30},
-                {width:50,formatter:Cformater},       
+                {width:30,formatter:Cformater},       
                 {name:'unknown', width:200, editable:true,edittype:"textarea"},
-                {name:'known', width:200, editable:true,edittype:"textarea"},
-                {name:'accent', width:200, editable:true,edittype:"textarea"}		
+                {name:'known', width:200, editable:true,edittype:"textarea"}//,
+ //               {name:'accent', width:200, editable:true,edittype:"textarea"}		
         ],
         editurl: '//' + path + '/grid/gridsave',
         rowNum:10,
@@ -41,7 +41,8 @@ $(function() {
         sortname: 'id',
         sortorder: "asc",
         viewrecords: true,
-        height: "250",
+        height: "400",
+        width:749,
         onSelectRow: function(id){
             if(id && id!==lastsel){
                 var saveurl = '//' + path + '/grid/gridsave';
@@ -110,6 +111,13 @@ $(function() {
         jQuery('#grid').jqGrid('saveRow',id, checkedit, saveurl);
 
     })
+    
+    $('#start').click(function(){
+        $("#gridpanel").hide();   
+        $("#startpanel").show();
+    })
+    
+
     
     function checkedit(result){
         return false;
