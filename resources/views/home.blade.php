@@ -37,11 +37,13 @@
                         <div class="panel-body" style="height:400px">
                         <button id="back">Back</button>
                         <button id="nextWord">Next word</button>
-                        <div id="unc"style="height:150px;background-color: yellow; font-size: 26px; padding: 10px; font-weight: bold"></div>
-                        <textarea id="cnwn" style="height:150px;width: 100%"></textarea>
-
-
-
+                        <div id="unc"style="height:150px;background-color: grey; font-size: 26px; padding: 10px; font-weight: bold"></div>
+                        <!--<textarea id="cnwn" style="height:150px;width: 100%; font-size: 26px;" ></textarea>-->
+                        <div id="cnwn" style="height:150px;width: 100%; font-size: 26px; padding: 10px; font-weight: bold" contenteditable="true"></div>
+                        <div id="cnwnHidden" style="display: none"></div>
+                        <div id="idHidden" style="display: none"></div>
+                        <div id="entries"></div>
+                        <button id="btn">btn</button>
                         </div>
                     </div>
                 </div>

@@ -20,4 +20,8 @@ class RandomController extends Controller
         return \App\Data::where('tree_struct_id', $structid)->inRandomOrder()->first();
     }
 
+    public function getCount(){
+        $structid = Session::get('structid');
+        return \App\Data::where('tree_struct_id', $structid)->count();
+    }
 }

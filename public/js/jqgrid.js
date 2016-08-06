@@ -112,13 +112,6 @@ $(function() {
 
     })
     
-    $('#start').click(function(){
-        $("#gridpanel").hide();   
-        $("#startpanel").show();
-    })
-    
-
-    
     function checkedit(result){
         return false;
     }
